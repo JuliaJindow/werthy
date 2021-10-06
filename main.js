@@ -31,7 +31,7 @@ function setup(){
   posenet = ml5.poseNet(video, modelLoaded);
   posenet.on('pose', gotPoses);
 }
-e
+
 function modelLoaded() {
   console.log("Model is loaded!");
 }
@@ -39,7 +39,7 @@ function gotPoses(results) {
   if (results.length > 0) {
       wristX = results[0].pose.rightWrist.x;
       wristY = results[0].pose.rightWrist.y;
-      score = floor(leftWristX - rightWristX);     
+      score = floor(wristY - wristX);     
   }
 }
 
@@ -127,7 +127,7 @@ function drawScore(){
 
 
 //very important function of this game
-function move(){
+function move(){  
    fill(50,350,0);
    stroke(255,0,0);
    strokeWeight(0.5);
